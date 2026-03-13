@@ -1,25 +1,19 @@
-const toggleBtn = document.getElementById("themeToggle");
+const toggle = document.getElementById('themeToggle');
 const html = document.documentElement;
-const icon = document.getElementById("icon");
 
-//system theme detect
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-//load saved theme
-if(localStorage.getItem("theme") === "dark" || (!localStorage.getItem("theme") && prefersDark)){
-	html.classList.add("dark");
-	icon.textContent = "☀️";
+// Load saved theme
+if(localStorage.getItem('theme') === 'dark'){
+    html.classList.add('dark');
+    toggle.checked = true;
 }
 
-//Toggle theme
-toggleBtn.addEventListener("click", () =>{
-	html.classList.toggle("dark");
-
-	if(html.classList.contains("dark")){
-		localStorage.setItem("theme", "dark");
-		icon.textContent = "☀️";
-	}else{
-		localStorage.setItem("theme", "light");
-		icon.textContent = "🌙";
-	}
+// Toggle theme
+toggle.addEventListener('change', () => {
+    if(toggle.checked){
+        html.classList.add('dark');
+        localStorage.setItem('theme','dark');
+    } else {
+        html.classList.remove('dark');
+        localStorage.setItem('theme','light');
+    }
 });

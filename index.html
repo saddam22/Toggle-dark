@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dark Light Mode</title>
-
+<title>iPhone Style Dark/Light Toggle</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
-tailwind.config = {
-  darkMode: 'class'
-}
+  tailwind.config = {
+    darkMode: 'class'
+  }
 </script>
 </head>
+<body class="bg-white dark:bg-gray-900 transition-colors duration-500 flex items-center justify-center h-screen">
 
-<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition duration-500">
+<div class="flex items-center gap-4">
 
-<div class="flex flex-col items-center justify-center h-screen">
+<!-- Sun Icon -->
+<span class="text-yellow-400 text-2xl">☀️</span>
 
-<h1 class="text-4xl font-bold mb-6">Dark / Light Mode Toggle</h1>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+  <input type="checkbox" id="themeToggle" class="sr-only">
+  <div class="w-14 h-7 bg-gray-300 rounded-full peer dark:bg-gray-700 transition-colors"></div>
+  <div class="absolute left-1 top-1 w-5 h-5 bg-white rounded-full transition-transform peer-checked:translate-x-7"></div>
+</label>
 
-<button id="themeToggle" class="flex items-center gap-3 px-6 py-3 bg-gray-800 text-white rounded-x1 dark:bg-yellow-400 dark:text-black">
-<span id="icon">🌙</span>
-<span>Toggle Theme</span>
-</button>
+<!-- Moon Icon -->
+<span class="text-gray-200 text-2xl">🌙</span>
 
 </div>
 
